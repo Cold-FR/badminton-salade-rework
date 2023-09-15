@@ -37,10 +37,10 @@ gageAdd.addEventListener('click', (e) => {
 const gageCheck = document.getElementById('check-dare');
 gageCheck.addEventListener('input', (e) => {
     const option = e.target.value;
-    if(option === '1') {
+    if (option === '1') {
         document.getElementById('label-gages').style.display = 'block';
         document.getElementById('gages').style.display = 'block';
-    } else if(option === '0') {
+    } else if (option === '0') {
         document.getElementById('label-gages').style.display = 'none';
         document.getElementById('gages').style.display = 'none';
     }
@@ -74,17 +74,17 @@ function createProfil() {
         profil['id'] = JSON.parse(localStorage.getItem('profils')).length + 1;
     }
     const name = document.getElementById('profil-name').value.replaceAll(' ', '');
-    if(name !== '')
+    if (name !== '')
         profil['name'] = name;
     else
         profil['name'] = 'Profil ' + profil['id'];
     const nbTerrains = parseInt(document.getElementById('nb-terrains').value);
-    if(nbTerrains !== 0)
+    if (nbTerrains !== 0)
         profil['terrains'] = nbTerrains;
     else
         profil['terrains'] = 1;
     const nbTours = parseInt(document.getElementById('nb-tours').value);
-    if(nbTours !== 0)
+    if (nbTours !== 0)
         profil['tours'] = nbTours;
     else
         profil['tours'] = 3;
@@ -95,16 +95,16 @@ function createProfil() {
     players.forEach((el) => {
         let player = {};
         const playerName = el.querySelector('.player-name').value.replaceAll(' ', '');
-        if(playerName !== '') player['name'] = playerName;
+        if (playerName !== '') player['name'] = playerName;
         const playerFirstName = el.querySelector('.player-firstname').value.replaceAll(' ', '');
-        if(playerFirstName !== '') player['firstname'] = playerFirstName;
+        if (playerFirstName !== '') player['firstname'] = playerFirstName;
         const playerLevel = parseInt(el.querySelector('.player-level').value);
-        if(playerLevel === 1 ||playerLevel === 2 || playerLevel === 3) player['level'] = playerLevel;
+        if (playerLevel === 1 || playerLevel === 2 || playerLevel === 3) player['level'] = playerLevel;
         playersList.push(player);
     });
-    if(playersList.length !== 0) profil['players'] = playersList;
+    if (playersList.length !== 0) profil['players'] = playersList;
 
-    if(profil['gage']) {
+    if (profil['gage']) {
         const gages = document.querySelectorAll('.gage-text');
         let gageList = [];
         gages.forEach((el) => {
@@ -114,33 +114,38 @@ function createProfil() {
         if (gageList.length !== 0) profil['gages'] = gageList;
     }
 
-    if(!localStorage.getItem('profils')) {
+    if (!localStorage.getItem('profils')) {
         localStorage.setItem('profils', JSON.stringify([profil]));
     } else {
         const profils = JSON.parse(localStorage.getItem('profils'));
         profils.push(profil);
         localStorage.setItem('profils', JSON.stringify(profils));
     }
-    console.log(JSON.parse(localStorage.getItem('profils')));
+
+    return profil['id'];
 }
 
 function loadProfils() {
-    console.log('aaa');
-    if(!localStorage.getItem('profils')) return;
+    if (!localStorage.getItem('profils')) return;
     const profils = JSON.parse(localStorage.getItem('profils'));
-    const options = [];
+    const options = ['Nouveau profil'];
     profils.forEach((profil) => {
-       options.push(profil['name']);
+        options.push(profil['name']);
     });
     const selectProfils = document.getElementById('select-profils');
     options.forEach((opt, key) => {
+        if (key === 0) return selectProfils[key] = new Option(opt, '0', false, false);
         selectProfils[key] = new Option(opt, selectProfils.options.length, false, false);
     });
-    console.log('aaa');
 }
 
 document.getElementById('launch-tournament').addEventListener('submit', (e) => {
     e.preventDefault();
-    createProfil();
+    if (document.getElementById('select-profils').value === '0') {
+        const profil = createProfil();
+        sessionStorage.setItem('profilId', profil);
+    } else {
+        sessionStorage.setItem('profilId', document.getElementById('select-profils').value);
+    }
     document.location.href = 'tournament.html';
 });

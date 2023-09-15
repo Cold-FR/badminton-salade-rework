@@ -1,7 +1,7 @@
 {
   "name": "badmintonsalade",
   "productName": "Badminton Salade",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "src/app.js",
   "scripts": {
@@ -56,7 +56,7 @@
     "win": {
       "target": [
         {
-          "target": "nsis-web"
+          "target": "nsis"
         }
       ]
     },
