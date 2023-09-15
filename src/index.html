@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Badminon Salade - Accueil</title>
+    <link rel="stylesheet" href="./assets/css/global.css"/>
+    <link rel="stylesheet" href="./assets/css/index.css"/>
+</head>
+
+<body>
+<main>
+    <header>
+        <div class="content">
+            <div class="logo"></div>
+            <h1 class="title">Tournoi Salade</h1>
+            <h4 id="app-version">Version :</h4>
+        </div>
+    </header>
+    <div class="content forms">
+        <form id="create-profil">
+            <h2 class="form-title">Créer un profil</h2>
+            <div class="form-content">
+                <label for="profil-name">Nom du profil</label>
+                <input type="text" id="profil-name" placeholder="Nom du profil..."/>
+
+                <label for="nb-terrains">Nombre de terrain du gymnase</label>
+                <input type="number" id="nb-terrains" placeholder="1" min="1"/>
+
+                <label for="nb-tours">Nombre de tours</label>
+                <input type="number" id="nb-tours" placeholder="3" min="1"/>
+
+                <label for="check-dare">Mode gage</label>
+                <select id="check-dare">
+                    <option value="0" selected="selected">Désactivé</option>
+                    <option value="1">Activé</option>
+                </select>
+
+                <label for="list-players">Liste des joueurs</label>
+                <div class="players">
+                    <label>Nom</label>
+                    <label>Prénom</label>
+                    <label>Niveau</label>
+                    <div id="list-players">
+                        <div class="player">
+                            <div class="player-delete">X</div>
+                            <input class="player-name" type="text" placeholder="Le prénom du joueur..."/>
+                            <input class="player-firstname" type="text" placeholder="Le nom du joueur..."/>
+                            <select class="player-level">
+                                <option value="1">Débutant</option>
+                                <option value="2">Intermédiaire</option>
+                                <option value="3">Confirmé</option>
+                            </select>
+                        </div>
+                        <div class="player">
+                            <div class="player-delete">X</div>
+                            <input class="player-name" type="text" placeholder="Le prénom du joueur..."/>
+                            <input class="player-firstname" type="text" placeholder="Le nom du joueur..."/>
+                            <select class="player-level">
+                                <option value="1">Débutant</option>
+                                <option value="2">Intermédiaire</option>
+                                <option value="3">Confirmé</option>
+                            </select>
+                        </div>
+                        <div class="player">
+                            <div class="player-delete">X</div>
+                            <input class="player-name" type="text" placeholder="Le prénom du joueur..."/>
+                            <input class="player-firstname" type="text" placeholder="Le nom du joueur..."/>
+                            <select class="player-level">
+                                <option value="1">Débutant</option>
+                                <option value="2">Intermédiaire</option>
+                                <option value="3">Confirmé</option>
+                            </select>
+                        </div>
+                        <div class="player">
+                            <div class="player-delete">X</div>
+                            <input class="player-name" type="text" placeholder="Le prénom du joueur..."/>
+                            <input class="player-firstname" type="text" placeholder="Le nom du joueur..."/>
+                            <select class="player-level">
+                                <option value="1">Débutant</option>
+                                <option value="2">Intermédiaire</option>
+                                <option value="3">Confirmé</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="player-add">Ajouter</button>
+                </div>
+                <!--<label for="file-players">Importer une liste de joueurs (via Excel)</label>
+                <input id="file-players" type="file" accept=""/>-->
+
+                <label id="label-gages" for="gages" style="display: none;">Liste des gages</label>
+                <div id="gages" style="display: none;">
+                    <div id="list-gages">
+                        <div class="gage">
+                            <div class="gage-delete">X</div>
+                            <input class="gage-text" type="text" placeholder="Le gage..."/>
+                        </div>
+                        <div class="gage">
+                            <div class="gage-delete">X</div>
+                            <input class="gage-text" type="text" placeholder="Le gage..."/>
+                        </div>
+                        <div class="gage">
+                            <div class="gage-delete">X</div>
+                            <input class="gage-text" type="text" placeholder="Le gage..."/>
+                        </div>
+                    </div>
+                    <button id="gage-add">Ajouter</button>
+                </div>
+            </div>
+        </form>
+
+        <form id="choose-profil">
+            <h2 class="form-title">Choisir un profil</h2>
+            <div class="form-content">
+                <label>Mes profils</label>
+                <select id="select-profils">
+                    <option value="0" selected="selected">Nouveau profil</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="content">
+        <form id="launch-tournament">
+            <input type="submit" value="Lancer le tournoi"/>
+        </form>
+    </div>
+</main>
+
+<script src="./assets/js/global.js" type="text/javascript"></script>
+<script src="./assets/js/index.js" type="text/javascript"></script>
+</body>
+
+</html>

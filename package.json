@@ -1,0 +1,93 @@
+{
+  "name": "badmintonsalade",
+  "productName": "Badminton Salade",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Cold",
+    "email": "coldcitywish@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@electron-delta/updater": "^0.1.17",
+    "axios": "^1.2.1",
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.3.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.10.3",
+    "@electron-delta/builder": "^0.1.17",
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "electron": "22.0.0"
+  },
+  "repository": "https://github.com/Cold-FR/badminton-salade",
+  "build": {
+    "appId": "com.electron.badmintonsalade",
+    "compression": "maximum",
+    "files": [
+      "src/**/*",
+      "package.json",
+      "icon.ico",
+      "icon.png"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Cold-FR",
+        "repo": "badminton-salade"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis-web"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "differentialPackage": true,
+      "createDesktopShortcut": "always",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "BadmintonSalade-${version}.${ext}",
+      "uninstallDisplayName": "${productName}",
+      "installerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
+    },
+    "nsisWeb": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "differentialPackage": true,
+      "createDesktopShortcut": "always",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "BadmintonSalade-${version}.${ext}",
+      "uninstallDisplayName": "${productName}",
+      "installerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
+    },
+    "afterAllArtifactBuild": ".electron-delta.js"
+  }
+}
