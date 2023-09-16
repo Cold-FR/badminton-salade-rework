@@ -31,7 +31,7 @@ const createWindow = () => {
     return window;
 };
 
-app.on('ready', async () => {
+app.whenReady().then(async () => {
     const deltaUpdater = new DeltaUpdater({
         logger,
         autoUpdater: require("electron-updater").autoUpdater,

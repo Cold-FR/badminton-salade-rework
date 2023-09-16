@@ -8,9 +8,11 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "electron-forge publish",
+    "build": "electron-builder --win"
   },
   "keywords": [],
+  "repository": "https://github.com/Cold-FR/badminton-salade-rework",
   "author": {
     "name": "Cold",
     "email": "coldcitywish@gmail.com"
@@ -32,7 +34,6 @@
     "@electron-forge/maker-zip": "^6.0.4",
     "electron": "22.0.0"
   },
-  "repository": "https://github.com/Cold-FR/badminton-salade",
   "build": {
     "appId": "com.electron.badmintonsalade",
     "compression": "maximum",
@@ -50,31 +51,20 @@
       {
         "provider": "github",
         "owner": "Cold-FR",
-        "repo": "badminton-salade"
+        "repo": "badminton-salade-rework"
       }
     ],
     "win": {
       "target": [
+        "nsis"
+      ],
+      "publish": [
         {
-          "target": "nsis"
+          "provider": "github"
         }
       ]
     },
     "nsis": {
-      "oneClick": true,
-      "perMachine": false,
-      "allowElevation": true,
-      "runAfterFinish": true,
-      "differentialPackage": true,
-      "createDesktopShortcut": "always",
-      "deleteAppDataOnUninstall": false,
-      "artifactName": "BadmintonSalade-${version}.${ext}",
-      "uninstallDisplayName": "${productName}",
-      "installerIcon": "icon.ico",
-      "installerHeaderIcon": "icon.ico",
-      "uninstallerIcon": "icon.ico"
-    },
-    "nsisWeb": {
       "oneClick": true,
       "perMachine": false,
       "allowElevation": true,
