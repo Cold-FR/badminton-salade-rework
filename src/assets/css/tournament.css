@@ -1,6 +1,9 @@
 main {
     overflow: auto;
-    margin-bottom: 100px;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    transform: unset;
 }
 
 .title {
@@ -8,7 +11,11 @@ main {
 }
 
 .tour {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.tour:last-child {
+    margin-bottom: 0;
 }
 
 .tour-nb {
@@ -26,7 +33,7 @@ main {
     display: flex;
     position: relative;
     min-width: 215px;
-    height: 465px;
+    height: 445px;
     width: calc(25% - 15px);
     flex-direction: column;
     align-content: center;
