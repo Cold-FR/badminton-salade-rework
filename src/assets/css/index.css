@@ -94,7 +94,7 @@ main > .content {
     opacity: .75;
 }
 
-.players > button, #gages > button {
+.players > button, #gages > button, #set-favorite {
     margin: 10px 0 3px;
     padding: 7px 10px;
     font-size: 18px;
