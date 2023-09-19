@@ -79,12 +79,12 @@ function createProfil() {
     else
         profil['name'] = 'Profil ' + profil['id'];
     const nbTerrains = parseInt(document.getElementById('nb-terrains').value);
-    if (nbTerrains !== 0)
+    if (nbTerrains !== 0 && !isNaN(nbTerrains))
         profil['terrains'] = nbTerrains;
     else
         profil['terrains'] = 1;
     const nbTours = parseInt(document.getElementById('nb-tours').value);
-    if (nbTours !== 0)
+    if (nbTours !== 0 && !isNaN(nbTours))
         profil['tours'] = nbTours;
     else
         profil['tours'] = 3;
@@ -137,7 +137,16 @@ function loadProfils() {
         if (key === 0) return selectProfils[key] = new Option(opt, '0', false, false);
         selectProfils[key] = new Option(opt, selectProfils.options.length, false, false);
     });
+
+    if(localStorage.getItem('favoriteProfil')) selectProfils.value = localStorage.getItem('favoriteProfil');
 }
+
+document.getElementById('set-favorite').addEventListener('click', (e) => {
+    e.preventDefault();
+    const profilId = document.getElementById('select-profils').value;
+    if(profilId === '0') return;
+    localStorage.setItem('favoriteProfil', profilId);
+});
 
 document.getElementById('launch-tournament').addEventListener('submit', (e) => {
     e.preventDefault();
