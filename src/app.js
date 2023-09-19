@@ -13,10 +13,7 @@ const createWindow = () => {
         backgroundColor: '#8E54E9',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
-            plugins: true,
-            nodeIntegration: true,
-            contextIsolation: false,
-            webSecurity: false
+            plugins: true
         }
     });
 
@@ -61,5 +58,17 @@ app.on('activate', () => {
 
 ipc.on('version', event => {
     event.sender.send('version', app.getVersion());
+});
+
+ipc.on('askMatchs', (event, data) => {
+    const profil = JSON.parse(data);
+    console.log(profil);
+    const nbPairs= Math.floor(profil.players.length / 2);
+    const nbPlayersLeft = profil.players.length % 2;
+    const pairsPerTerrain = nbPairs / profil.terrains;
+
+    console.log(nbPairs, pairsPerTerrain);
+
+
 });
 
