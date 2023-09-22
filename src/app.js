@@ -67,7 +67,7 @@ ipc.on('askMatchs', (event, data) => {
     const nbPlayersLeft = profil.players.length % 2;
     const pairsPerTerrain = nbPairs / profil.terrains;
 
-    console.log(nbPairs, pairsPerTerrain);
+    console.log(profil.players.length, nbPairs, pairsPerTerrain, nbPlayersLeft);
 
 
 });
