@@ -138,7 +138,29 @@ function loadProfils() {
         selectProfils[key] = new Option(opt, selectProfils.options.length, false, false);
     });
 
-    if(localStorage.getItem('favoriteProfil')) selectProfils.value = localStorage.getItem('favoriteProfil');
+    if(localStorage.getItem('favoriteProfil')) {
+        selectProfils.value = localStorage.getItem('favoriteProfil');
+        setProfilData(localStorage.getItem('favoriteProfil'));
+    }
+
+    selectProfils.addEventListener('change', () => {
+        setProfilData(selectProfils.value);
+    });
+}
+
+function setProfilData(profilValue) {
+    if(profilValue === '0') return;
+    const selectedProfil = JSON.parse(localStorage.getItem('profils'))[profilValue-1];
+
+    console.log(selectedProfil);
+
+    document.getElementById('profil-name').value = selectedProfil.name;
+    document.getElementById('nb-terrains').value = selectedProfil.terrains;
+    document.getElementById('nb-tours').value = selectedProfil.tours;
+    document.getElementById('check-dare').value = selectedProfil.gage ? '1' : '0';
+
+    /// réutiliser la fonction qui ajoute les joueurs avec le bouton pour ajouter les joueurs, faire pareil avec gage si gage activé
+
 }
 
 document.getElementById('set-favorite').addEventListener('click', (e) => {
