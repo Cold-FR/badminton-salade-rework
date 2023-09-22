@@ -141,5 +141,6 @@ main > .content {
 .forms {
     max-height: 55%;
     overflow: auto;
+    margin-bottom: 15px;
  }
 

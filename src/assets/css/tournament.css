@@ -1,9 +1,5 @@
 main {
     overflow: auto;
-    padding: 30px;
-    top: 0;
-    left: 0;
-    transform: unset;
 }
 
 .title {
