@@ -1,0 +1,62 @@
+Créer un logiciel pour définir l'échéancier d'un tournoi salade.
+
+
+Données d'entrées:
+
+Nombre de terrain du gymnase
+
+Une coche activation gage
+
+Définition du nombre de tours
+
+Liste 1
+Une liste à entrer manuellement à chaque tournoi
+ Liste de joueurs Nom / Prénom - Niveau badminton  1 Débutant - 2 Intermédiaire - 3 Confirmé
+
+Liste 2
+Une liste à compléter en fonction des idées
+    Gage
+
+
+
+Objectif:
+
+Faire jouer les joueurs de la liste 1 en double.
+
+Le logiciel doit permettre de s'affronter sur un terrain des paires à niveau équivalent Nombre de point de paires de joueurs.
+    L'écart entre paire ne doit pas dépasser 1 point.
+
+Si la coche activation gage est activée, le logiciel affecte un gage à chaque équipe.
+
+Tour 1:
+Le logiciel réparti tous les joueurs de la liste 1 en fonction du nombre de terrain disponibles. 2 paires par terrain soit 4 joueurs.
+    Si trop de joueurs, mise sur liste d'attente des autres joueurs qui seront prioritaires au tour suivant.
+Le logiciel affiche les paires qui s'opposent sur quel terrain et avec quel gage (si option retenue).
+
+
+Tour 2:
+    Prioriser le placement de joueurs qui n'ont pas joué avant.
+    Créer de nouvelles paire et de nouvelles confrontations avec les règles suivantes:
+        Ne pas avoir le même partenaire qu'au tour précédent
+        ne pas avoir un adversaire identique qu'au tour précédent.
+        Ne pas affecter à un joueur le même gages qu'au tour précédent.
+    Mise sur liste d'attente de joueur en trop
+
+
+Tour 3:
+    Prioriser le placement de joueurs qui n'ont pas joué avant.
+    Créer de nouvelles paire et de nouvelles confrontations avec les règles suivantes:
+        Ne pas avoir le même partenaire qu'aux tours précédents
+        ne pas avoir un adversaire identique qu'aux tours précédents.
+        Ne pas affecter à un joueur le même gages qu'aux tours précédents
+    Mise sur liste d'attente de joueur en trop
+
+Tour x:
+Idem jusqu'à un nombre de tour prédefini
+
+    Si les règles suivantes ne peuvent plus s'appliquer:
+       Ne pas avoir un adversaire identique qu'aux tours précédents. remplacer par ne pas avoir une paire identique aux tours précédents
+
+       Ne pas avoir le même partenaire qu'aux tours précédents - on passe à ne pas pas avoir le même partenaire depuis 4 tours.
+Ne pas affecter à un joueur le même gages  qu'aux tours précédents- on passe à ne pas pas avoir le même partenaire depuis 4 tours.
+
